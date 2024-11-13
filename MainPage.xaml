@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             x:Class="DXMauiApp46.MainPage">
+
+    <Grid RowDefinitions="100,*">
+        <HorizontalStackLayout>
+            <Button Text="Move Up" Command="{Binding MoveUpCommand}"/>
+            <Button Text="Move Down" Command="{Binding MoveDownCommand}"/>
+        </HorizontalStackLayout>
+        <dx:DXCollectionView AllowCascadeUpdate="False" Grid.Row="1"
+                             ItemsSource="{Binding Items}"
+                             SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+           GroupItemSeparatorCapMargin="10" 
+           GroupItemSeparatorThickness="0.7" 
+           ItemSeparatorCapMargin="10" 
+           ItemSeparatorColor="DarkBlue" 
+           ItemSeparatorShowBeforeGroup="True" 
+           ItemSeparatorThickness="0.7" 
+           SelectionMode="Single" 
+           UseRippleEffect="True"/>
+    </Grid>
+</ContentPage>

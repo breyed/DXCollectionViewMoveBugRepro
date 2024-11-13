@@ -1,0 +1,23 @@
+*.bak
+*.jfm
+*.iml
+*.fxp
+*.user
+*.dbmdl
+*.suo
+.vs
+obj
+bin
+node_modules
+packages
+.DS_Store
+.env.local
+.env.*.local
+local.settings.json
+.idea/misc.xml
+.idea/caches/
+profile.arm.json
+__pycache__/
+
+# testing
+/coverage
