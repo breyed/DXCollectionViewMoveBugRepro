@@ -30,7 +30,7 @@ namespace DXMauiApp46 {
         public Command MoveDownCommand { get; set; }
 
         public bool CanMove() {
-            return !string.IsNullOrEmpty(this.SelectedItem);
+            return this.SelectedItem != null;
         }
 
         public void Up() {
@@ -48,20 +48,20 @@ namespace DXMauiApp46 {
         }
 
 
-        protected ObservableCollection<string> _Items;
-        public ObservableCollection<string> Items {
+        protected ObservableCollection<MyItem> _Items;
+        public ObservableCollection<MyItem> Items {
             get {
                 if (this._Items == null) {
-                    this._Items = new ObservableCollection<string>(Enumerable.Range(0, 100).Select(c => $"Item {c}"));
+                    this._Items = new ObservableCollection<MyItem>(Enumerable.Range(0, 100).Select(c => new MyItem { Value = c }));
                 }
 
                 return this._Items;
             }
         }
 
-        protected string _SelectedItem;
+        protected MyItem _SelectedItem;
 
-        public string SelectedItem {
+        public MyItem SelectedItem {
             get {
                 return this._SelectedItem;
             }
@@ -75,5 +75,11 @@ namespace DXMauiApp46 {
                 }
             }
         }
+    }
+
+    public class MyItem {
+        public int Value { get; set; }
+        public string Name => Value.ToString();
+        public DateTime Date => new DateTime(2024, 1, 1).AddHours(Value);
     }
 }

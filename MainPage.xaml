@@ -20,6 +20,20 @@
            ItemSeparatorShowBeforeGroup="True" 
            ItemSeparatorThickness="0.7" 
            SelectionMode="Single" 
-           UseRippleEffect="True"/>
+           UseRippleEffect="True">
+
+            <dx:DXCollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}"/>
+                </DataTemplate>
+            </dx:DXCollectionView.ItemTemplate>
+
+            <!-- If you comment the following code out, move works. -->
+            <dx:DXCollectionView.GroupDescription>
+                <dx:GroupDescription FieldName="Date"
+                        GroupInterval="Date"/>
+            </dx:DXCollectionView.GroupDescription>
+
+        </dx:DXCollectionView>
     </Grid>
 </ContentPage>
